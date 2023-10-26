@@ -1,0 +1,123 @@
+/* header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+} */
+header {
+  background-color: #f7f7f7;
+  color: #447446;
+  border-bottom: 1px solid #447446;
+  /* padding: 10px; */
+}
+body {
+  background-color: #f7f7f7;
+}
+ /* .Menu {
+  display: grid;
+  grid-template-columns: auto auto auto;
+ 
+} 
+.Menu li {
+  margin-left: 20px;
+}
+.Menu a {
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+} */ 
+.Banner {
+	
+}
+.Logo {
+  display: flex;
+  align-items: center; 
+  font-size: large;
+}
+
+.Logo img {
+  display: block;
+  /* margin-left: auto;
+  margin-right: auto; */
+  width: 100px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f7f7f7;
+  color: #fff;
+  padding: 10px 20px;
+  height: 25px;
+  border-bottom: 1px solid #447446;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #447446;
+  margin: 3px 0;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+}
+
+.menu li {
+  margin-right: 20px;
+  /* font-size: small; */
+}
+
+.menu a {
+  text-decoration: none;
+  color: #447446;
+}
+
+@media (max-width: 768px) {
+  .menu {
+      display: none;
+      flex-direction: column;
+      background-color: #f7f7f7;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      padding: 20px;
+  }
+
+  .menu.active {
+      display: flex;
+  }
+
+  .menu-toggle {
+      display: flex;
+  }
+}
+
+.cabanas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr); 
+  gap: 10px; 
+ 
+} 
+.cabana-item {
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+  /* width: 20%; */
+}
+.cabana-item img {
+  width: 100%;
+}
+.mapa {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
