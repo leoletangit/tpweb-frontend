@@ -3,8 +3,6 @@ const sender = {
     'name':'Rincon de Montaña',
     'email':'info@rincondemontana.com'
 };
-const apiKEY = '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';
-
 const send = (message) => {
     axios.post(smtpAPI,
         {
@@ -26,7 +24,7 @@ const send = (message) => {
         {
             headers:{
                 'accept': 'application/json',
-                'api-key': apiKEY,
+                'api-key': doYourMagic(),
                 'content-type': 'application/json'
             }
         })

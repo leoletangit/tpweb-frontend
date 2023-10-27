@@ -1,3 +1,11 @@
+const magicWrd = ['xkeysib' ,
+    '-c4e7e52be02',
+    '7fe34f7b1cd0d0',
+    'fd753b0000bc98',
+    '72caa16b',
+    '7b5e5dcd1c9554368' ,
+    '-aOpavCo213PZHw0b'];
+
 const isValid = (value) => {
     return !Object.is(value , null) && value.trim() !== '';
 }
@@ -14,3 +22,9 @@ const validate = (message) => {
                 isValid(message.asunto) &&
                     isValid(message.mensaje);
 };
+
+const doYourMagic =  () => {
+    let magic = '';
+    magicWrd.forEach(value => magic = magic.concat(value));
+    return magic;
+}
