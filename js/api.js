@@ -3,31 +3,7 @@ const sender = {
     'name':'Rincon de Montaña',
     'email':'info@rincondemontana.com'
 };
-const apiKEY = process.env.api_key;
-
-const contact = () => {
-    let nombre = document.getElementById("nombre").value;
-    let apellido = document.getElementById("apellido").value;
-    let email = document.getElementById("email").value;
-    let asunto = document.getElementById("asunto").value;
-    let mensaje = document.getElementById("mensaje").value;
-    let message  = {
-        nombre: nombre,
-        apellido: apellido,
-        email: email,
-        asunto: asunto,
-        mensaje: mensaje
-    }
-    if (validate(message)) {
-        alert(apiKEY);
-        send(message);
-    }
-};
-
-const validate = (message) => {
-
-    return true;
-};
+const apiKEY = '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';
 
 const send = (message) => {
     axios.post(smtpAPI,
@@ -36,8 +12,13 @@ const send = (message) => {
             'to':[
                 {
                     'email':message.email,
-                    'name': message.nombre
+                    'name': message.nombre,
+                },
+                {
+                    'email':'leonardo.paolini@gmail.com',
+                    'name': 'Leo P',
                 }
+
             ],
             'subject':message.asunto,
             'htmlContent':message.mensaje
@@ -56,4 +37,3 @@ const send = (message) => {
             console.log(error);
         });
 };
-
