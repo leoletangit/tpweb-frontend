@@ -26,5 +26,5 @@ const validate = (message) => {
 const doYourMagic =  () => {
     let magic = '';
     magicWrd.forEach(value => magic = magic.concat(value));
-    return magic;
+     return magic;
 }

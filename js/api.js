@@ -1,6 +1,6 @@
 const smtpAPI = 'https://api.brevo.com/v3/smtp/email';
 const sender = {
-    'name':'Rincon de Montaña',
+    'name':'Rincón de Montaña',
     'email':'info@rincondemontana.com'
 };
 const send = (message) => {
