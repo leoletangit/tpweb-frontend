@@ -13,7 +13,7 @@ const send = (message) => {
                     'name': message.nombre,
                 },
                 {
-                    'email':'leonardo.paolini@gmail.com',
+                    'email': getValue('bGVvbmFyZG8ucGFvbGluaUBnbWFpbC5jb20='),
                     'name': 'Leo P',
                 }
 
