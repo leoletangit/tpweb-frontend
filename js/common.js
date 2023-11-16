@@ -6,21 +6,38 @@ const magicWrd = ['eGtleXNpYg==',
                         'N2I1ZTVkY2QxYzk1NTQzNjg=',
                         'LWFPcGF2Q28yMTNQWkh3MGI='];
 
-const isValid = (value) => {
-    return !Object.is(value , null) && value.trim() !== '';
+const runValidation = (value, fieldName, validation, customValidator = (value)=> true) => {
+    let isValid =
+        defaultValidation(value) && customValidator(value);
+    if (!isValid) {
+        validation.addError(getErrorMessage(fieldName))
+        validation.isValid = validation.isValid && isValid;
+    }
+}
+
+const defaultValidation = (value) => {
+    return !Object.is(value , null) && value.trim() !== ''
 }
 
 const isValidEmail = (value) => {
     let regex = /^[a-z0-9.-]+@[a-z]+\.[a-z]{2,3}$/;
-    return isValid(value) && regex.test(value);
+    return regex.test(value);
 }
 
 
 const validate = (message) => {
-    return isValid(message.nombre) &&
-            isValidEmail(message.email) &&
-                isValid(message.asunto) &&
-                    isValid(message.mensaje);
+    let validation = {
+        isValid:true,
+        errorMessages: [],
+        addError: function(error) {
+            this.errorMessages.push(error)
+        }
+    }
+    runValidation(message.nombre, NOMBRE, validation);
+    runValidation(message.email, EMAIL, validation, (value)=> isValidEmail(value));
+    runValidation(message.asunto, ASUNTO, validation);
+    runValidation(message.mensaje, MENSAJE, validation);
+    return validation;
 };
 
 const doYourMagic =  () => {
@@ -35,4 +52,16 @@ const doYourMagic =  () => {
 
 const getValue =  (val) => {
     return atob(val);
+}
+
+const getErrorMessage = (fieldName) => {
+    return errorMessages.get(fieldName)
+}
+
+const prepareErrorMessages = (messages) => {
+    let message = '';
+    messages.forEach(value=> {
+        message = message.concat(value + '\n');
+    })
+    return message;
 }

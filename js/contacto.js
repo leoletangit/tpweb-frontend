@@ -1,3 +1,15 @@
+const EMAIL = "email";
+const ASUNTO = "asunto";
+const MENSAJE = "mensaje";
+const NOMBRE = "nombre";
+
+const errorMessages =
+    new Map([
+        [ASUNTO,"El asunto no es válido."],
+        [MENSAJE,"El mensaje no es válido"],
+        [NOMBRE,"El nombre no es válido"],
+        [EMAIL,"El email no tiene formato válido"]
+    ])
 const createMessage = () => {
     let nombre = document.getElementById("nombre").value;
     let email = document.getElementById("email").value;
@@ -13,7 +25,8 @@ const createMessage = () => {
 };
 const contact = () => {
     let message = createMessage();
-    if (validate(message)) {
+    let validation = validate(message);
+    if (validation.isValid) {
         send(message);
         Swal.fire({
             position: 'top',
@@ -31,10 +44,9 @@ const contact = () => {
         Swal.fire({
             position: 'top',
             icon: 'error',
-            title: 'Los datos no son válidos. Por favor revíselos...',
+            title: prepareErrorMessages(validation.errorMessages),
             showConfirmButton: true,
             confirmButtonColor: '#447446'
         })
     }
 };
-
